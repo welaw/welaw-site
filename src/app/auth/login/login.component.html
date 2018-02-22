@@ -1,0 +1,19 @@
+<mat-card>
+    <mat-card-content>
+        <h3>Login</h3>
+        <a routerLink="/privacy">Privacy Policy</a>
+    </mat-card-content>
+</mat-card>
+<div class="section" fxLayoutAlign="center center">Choose a Provider</div>
+<div class="section" fxLayout="column" fxLayoutGap="1em" fxLayoutAlign="center center">
+    <a href="{{ getLoginUrl('google') }}" id="LoginWithGoogle">
+        <img src="/assets/btn_google_signin_dark_normal_web.png" id="google-image" />
+    </a>
+    <a href="{{ getLoginUrl('amazon') }}" id="LoginWithAmazon">
+        <img border="0" alt="Login with Amazon" id="amazon-image" src="https://images-na.ssl-images-amazon.com/images/G/01/lwa/btnLWA_gold_156x32.png"
+        />
+    </a>
+    <a href="{{ getLoginUrl('microsoft') }}" id="LoginWithMicrosoft">
+        <img border="0" alt="Login with Microsoft" id="microsoft-image" src="/assets/sign-in-with-microsoft-light.png" />
+    </a>
+</div>

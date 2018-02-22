@@ -1,0 +1,50 @@
+<mat-card>
+    <mat-card-content>
+        <div class="content">
+            <app-law-item-body-desktop [law]="law" [upstream]="upstream"></app-law-item-body-desktop>
+            <app-law-item-author-desktop [law]="law" fxFlex="1 0 auto"></app-law-item-author-desktop>
+        </div>
+
+        <div class="actions" fxLayout>
+            <div class="selects" fxLayout>
+                <mat-form-field>
+                    <mat-select placeholder="Branch" (change)="onBranchChanged($event.value)" [(ngModel)]="branch">
+                        <mat-option *ngFor="let set of branches" [value]="set.branch.name">{{ set.branch.name }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="version">
+                    <mat-select placeholder="Version" (change)="onVersionChanged($event.value)" [(ngModel)]="version">
+                        <mat-option *ngFor="let set of versions" [value]="'' + set.version.version">
+                            {{ set.version.version }}
+                            <span *ngIf="set?.version?.tag_4 != null"> - {{ set.version.tag_4 }}</span>
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div fxFlex="1 0 auto"></div>
+            <div class="buttons" fxLayout>
+                <a mat-button color="error" routerLink="." routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" matTooltip="Read">
+                    <mat-icon color="accent"> find_in_page </mat-icon>
+                </a>
+                <a mat-button color="error" routerLink="diff" routerLinkActive="active">
+                    <mat-icon color="accent" matTooltip="Compare"> view_column </mat-icon>
+                </a>
+                <a mat-button color="error" routerLink="improve" routerLinkActive="active">
+                    <mat-icon color="accent" matTooltip="Improve"> call_split </mat-icon>
+                </a>
+                <a *ngIf="!hasVoted()" mat-button color="error" routerLink="vote" routerLinkActive="active" matTooltip="Vote">
+                    <mat-icon color="accent"> assignment_turned_in </mat-icon>
+                </a>
+                <a *ngIf="hasVoted()" mat-button color="accent" routerLink="vote" routerLinkActive="active" matTooltip="Vote">
+                    <mat-icon color="accent"> assignment_turned_in </mat-icon>
+                </a>
+                <a mat-button color="accent" matTooltip="Share" (click)="shareDialog()">
+                    <mat-icon aria-label="share"> share </mat-icon>
+                </a>
+            </div>
+        </div>
+    </mat-card-content>
+    <mat-card-footer>
+        <mat-progress-bar matTooltip="Passed House" mode="determinate" value="4" color="accent"></mat-progress-bar>
+    </mat-card-footer>
+</mat-card>

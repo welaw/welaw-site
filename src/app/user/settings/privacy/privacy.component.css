@@ -1,0 +1,8 @@
+mat-slide-toggle {
+    padding-bottom: 2em;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}

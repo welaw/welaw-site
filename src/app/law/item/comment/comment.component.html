@@ -1,0 +1,28 @@
+<mat-card [ngStyle]="{'background-color': bgColor}">
+    <mat-card-content fxLayout="row">
+        <!-- user -->
+        <div fxLayout="column" fxFlex="1 0 auto">
+            <div fxLayout fxLayoutAlign="center center">
+                <img class="avatar-image" src="{{ comment?.user?.picture_url }}" (error)="avatarUrlError($event)">
+                <div fxLayout="column">
+                    <a class="username" fxFlex="1 0 auto" routerLink="/u/{{ comment?.user?.username }}" fxLayoutAlign="start center">
+                        <mat-icon color="accent"> account_box </mat-icon> {{ comment?.user?.username }}</a>
+                    <div id="annotations" (click)="onSelected($event)" fxLayoutAlign="center center">
+                        <mat-icon color="accent"> edit </mat-icon>&nbsp;{{ comment.annotation_count == null ? 0 : comment.annotation_count }}</div>
+                    <div *ngIf="comment?.disabled" matTooltip="Disabled">
+                        <mat-icon color="warn"> not_interested </mat-icon>
+                    </div>
+                    <a mat-button id="likes" fxLayout (click)="like()" [disabled]="!loggedIn() || comment?.liked">
+                        <mat-icon> thumb_up </mat-icon> {{ comment?.likes == null ? 0 : comment.likes }}
+                    </a>
+                </div>
+            </div>
+            <!-- comment -->
+            <div fxLayout fxFlex="1 0 auto">
+                <div fxFlex="1 0 auto" id="comment" (click)="onSelected($event)">{{ comment?.comment }}</div>
+            </div>
+            <!--<div id="actions" fxLayoutAlign="end center">-->
+            <!--</div>-->
+        </div>
+    </mat-card-content>
+</mat-card>

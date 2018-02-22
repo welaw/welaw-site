@@ -1,0 +1,7 @@
+<h3>Update Biography</h3>
+<form #nameForm="ngForm" (ngSubmit)="submit()">
+    <mat-input-container>
+        <textarea matInput [(ngModel)]="newBiography" required id="new-biography" name="new-biography"></textarea>
+    </mat-input-container>
+    <button mat-raised-button [disabled]="!nameForm.form.valid" color="warn" type="submit">Submit</button>
+</form>

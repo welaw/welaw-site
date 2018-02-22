@@ -1,0 +1,7 @@
+<div fxLayout class="container" fxLayoutAlign="center center">
+    <div class="vote">{{ vote?.vote }}</div>
+    <div *ngIf="vote?.comment != null && vote.comment != ''">
+        <div class="label">Comment</div>
+        <div>{{ vote?.comment }}</div>
+    </div>
+</div>

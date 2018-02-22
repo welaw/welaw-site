@@ -1,0 +1,9 @@
+<mat-card>
+    <mat-card-content fxLayout>
+        <app-law-item-body-desktop [law]="law" [upstream]="upstream" fxFlex="70%"></app-law-item-body-desktop>
+        <app-law-item-author-desktop [law]="law" fxFlex="30%"></app-law-item-author-desktop>
+    </mat-card-content>
+    <mat-card-footer>
+        <mat-progress-bar matTooltip="Passed House" mode="determinate" value="4" color="accent"></mat-progress-bar>
+    </mat-card-footer>
+</mat-card>

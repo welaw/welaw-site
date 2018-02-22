@@ -1,0 +1,25 @@
+<mat-card>
+    <mat-card-header>
+    </mat-card-header>
+    <mat-card-content>
+        <p>{{ (upstream | async)?.description }}</p>
+        <div class="row">
+            <a href="{{ (upstream | async )?.body_url }}" fxLayoutAlign="start center">
+                <mat-icon> link </mat-icon>&nbsp;{{ (upstream | async)?.body_url }}</a>
+        </div>
+        <div *ngIf="(upstream | async)?.metadata.wikipedia != '' && (upstream | async)?.metadata.wikipedia != null" class="row">
+            <a href="{{ (upstream | async)?.metadata.wikipedia }}" fxLayoutAlign="start center">
+                <img src="/assets/wikipedia.png" style="max-height=20px;max-width:20px">&nbsp;Wikipedia</a>
+        </div>
+        <div *ngIf="(upstream | async)?.metadata.facebook != '' && (upstream | async)?.metadata.facebook != null" class="row">
+            <a href="{{ (upstream | async)?.metadata.facebook }}" fxLayoutAlign="start center">
+                <img src="/assets/facebook.png" style="max-height=20px;max-width:20px">&nbsp;Facebook</a>
+        </div>
+        <div *ngIf="(upstream | async)?.metadata.twitter != '' && (upstream | async)?. metadata.twitter != null" class="row">
+            <a href="{{ (upstream | async)?.metadata.twitter }}" fxLayoutAlign="start center">
+                <img src="/assets/twitter.png" style="max-height=20px;max-width:20px">&nbsp;Twitter</a>
+        </div>
+    </mat-card-content>
+    <mat-card-actions>
+    </mat-card-actions>
+</mat-card>

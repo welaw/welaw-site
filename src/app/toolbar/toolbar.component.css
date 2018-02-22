@@ -1,0 +1,49 @@
+:host {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    width: 900px;
+}
+
+.admin {
+    color: #F44336;
+}
+
+a.title {
+    text-decoration: none;
+    color: white;
+    font-size: 20pt;
+}
+
+.username {
+    padding: 10px;
+}
+
+#avatar {
+    height: 30px;
+    width: 30px;
+    border-radius: 5px;
+}
+
+/* a {
+    text-decoration: none;
+    -o-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    color: blue;
+}
+
+a:hover {
+    -o-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    color: black;
+} */

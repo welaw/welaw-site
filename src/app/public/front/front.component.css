@@ -1,0 +1,9 @@
+:host {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+app-upstream-item-medium {
+    padding-bottom: 1em;
+}

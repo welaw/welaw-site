@@ -1,0 +1,155 @@
+:host {
+    height: 130px;
+}
+
+#short-title {
+    font-size: 1.2em;
+    padding-top: 0.5em;
+    padding-left: 1em;
+}
+
+.title {
+    padding-left: 1em;
+    padding-top: 0.5em;
+    line-height: 1em;
+    overflow: hidden;
+}
+
+#year {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    font-weight: bold;
+    padding: 0.5em;
+    /*background-color: #465ac7;*/
+    /*color: white;*/
+    /*width: 100%;*/
+}
+
+#month {
+    background-color: #6477e0;
+    color: white;
+    width: 100%;
+}
+
+#day {
+    font-size: 200%;
+    background-color: #8c9eff;
+    color: white;
+    /*width: 100%;*/
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.avatar-image {
+    height: 100%;
+    width: 130px;
+    padding-left: 1em;
+}
+
+a {
+    text-decoration: none;
+    -o-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    color: black;
+}
+
+a:hover {
+    -o-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    color: blue;
+}
+
+.tags-container {
+    margin-left: 1em;
+}
+
+.tags {
+    margin-top: 0.5em;
+}
+
+.tags > .tag {
+    width: 50px;
+    padding: 0.5em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    background-color: #FAFAFA;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.yes-icon {
+    font-size: 0.7em;
+}
+
+.no-icon {
+    font-size: 0.7em;
+}
+
+.no-value {
+    font-size: 1.5em;
+    color: white;
+    /*border: 1px solid #F44336;*/
+    background-color: #FFCDD2;
+    min-height: 40px;
+}
+
+.no-value>a {
+    color: white;
+    min-height: 40px;
+}
+
+.yes-value {
+    font-size: 1.5em;
+    color: white;
+    /*border: 1px solid #00E676;*/
+    background-color: #B9F6CA;
+    min-height: 40px;
+}
+
+.yes-value>a {
+    color: white;
+    min-height: 40px;
+}
+
+.yes-label {
+    font-size: 0.7em;
+}
+
+.no-label {
+    font-size: 0.7em;
+}
+
+#my-vote {
+    background-color: gold;
+}
+
+.comments {
+    margin: 0.5em;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+#my-vote>mat-icon {
+    color: white;
+    padding: 5px;
+}
+
+.calendar-body {
+    margin: 0.8em;
+    border: 1px solid silver;
+    border-radius: 10px;
+}

@@ -1,0 +1,41 @@
+<mat-toolbar color="primary" fxLayout fxLayoutAlign="center center">
+    <!--<button mat-icon-button (click)="sidenav.toggle()">-->
+    <!--<mat-icon>menu</mat-icon>-->
+    <!--</button>-->
+    <!--<a mat-raised-button color="primary" routerLink="/{{ (dataService.upstream | async).ident }}">{{ (dataService.upstream | async).ident | uppercase }}</a>-->
+    <!--<mat-menu #upstreamMenu="matMenu">-->
+    <!--<button disabled mat-menu-item><mat-icon> account_balance </mat-icon></button>-->
+    <!--<button *ngFor="let u of dataService.upstreams | async" mat-menu-item routerLink="/{{ u.ident }}"> {{ u.ident | uppercase }} </button>-->
+    <!--</mat-menu>-->
+    <!--<button mat-icon-button [matMenuTriggerFor]="upstreamMenu">-->
+    <!--<mat-icon>more_vert</mat-icon>-->
+    <!--[><mat-icon>account_balance</mat-icon><]-->
+    <!--</button>-->
+    <div class="wrapper" fxLayout>
+        <a class="title" routerLink="/" fxLayoutAlign="center center">WELAW</a>
+        <!--<a class="title" routerLink="/" fxLayoutAlign="center center">-->
+            <!--<img src="/assets/welaw_logo.png">-->
+        <!--</a>-->
+        <div fxLayoutAlign="end end" fxFlex="1 0 auto">
+            <!-- admin -->
+            <button *ngIf="isAdmin()" mat-button routerLink="/admin" color="warn">Admin</button>
+            <!-- user menu -->
+            <a *ngIf="!(loggedIn | async)" mat-raised-button color="accent" routerLink="/login">
+                <mat-icon> face </mat-icon>&nbsp;Login</a>
+            <button *ngIf="loggedIn | async" mat-icon-button color="accent" [matMenuTriggerFor]="userMenu">
+                <img src="{{ user?.picture_url }}" id="avatar" alt="Avatar" (error)="avatarUrlError($event)">
+            </button>
+            <mat-menu class="user-menu" #userMenu="matMenu">
+                <button *ngIf="!hasRegistered()" mat-menu-item routerLink="/register">Register</button>
+                <button *ngIf="hasRegistered()" mat-menu-item routerLink="/u/{{ user?.username }}">
+                    <mat-icon> account_circle </mat-icon>
+                    <span>{{ user?.username }}</span>
+                </button>
+                <!--<button *ngIf="isAdmin()" class="admin" mat-menu-item routerLink="/admin">Admin</button>-->
+                <button mat-menu-item routerLink="/logout">
+                    <span>Logout</span>
+                </button>
+            </mat-menu>
+        </div>
+    </div>
+</mat-toolbar>

@@ -1,0 +1,52 @@
+<button *ngIf="!searching" [@filterAnimation] mat-icon-button (click)="searchToggle()" color="accent">
+    <mat-icon> search </mat-icon>
+</button>
+
+<form *ngIf="searching" [@filterAnimation] #filterForm="ngForm" [formGroup]="filterCtrl" (ngSubmit)="submit()" fxLayout="column"
+    fxLayoutAlign="center center">
+    <mat-form-field id="search">
+        <input matInput formControlName="search" (input)="onSearchChange($event.target.value)" #searchField id="searchField" placeholder="Search"
+            aria-label="Search" [matAutocomplete]="auto">
+        <button mat-button *ngIf="filterCtrl.value.search" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearch()">
+            <mat-icon>close</mat-icon>
+        </button>
+        <mat-autocomplete #auto="matAutocomplete" placeholder="Order">
+            <mat-option *ngFor="let opt of sortOptions" [value]="opt">
+                <span>{{ opt }}</span>
+                <img style="vertical-align:middle;" aria-hidden src="{{state.flag}}" height="25" />
+                <span>{{ state.name }}</span>
+                <small>Population: {{state.population}}</small>
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+
+    <div class="row" fxLayoutWrap fxLayoutAlign="center start" fxLayoutGap="1em">
+        <div class="col">
+            <div class="label">Filter</div>
+            <mat-checkbox>All Branches</mat-checkbox>
+            <mat-checkbox>All Versions</mat-checkbox>
+        </div>
+        <div class="col">
+            <div class="label">Order</div>
+            <mat-checkbox id="desc" formControlName="desc" (change)="onDescChange($event.checked)">Descending</mat-checkbox>
+        </div>
+        <div class="col">
+            <div class="label">Sort</div>
+            <mat-radio-group id="order-by-opts" formControlName="selectedOpt" (change)="onOptChange($event.value)">
+                <mat-radio-button *ngFor="let opt of filterCtrl.value.opts" [value]="opt.toLowerCase().replace(' ', '_')">{{ opt }}</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <div class="col">
+            <div class="label">View</div>
+            <mat-radio-group>
+                <mat-radio-button>Default</mat-radio-button>
+                <mat-radio-button>Compact</mat-radio-button>
+            </mat-radio-group>
+        </div>
+    </div>
+    <div class="collapse">
+        <a mat-icon-button (click)="searchToggle()" color="accent">
+            <mat-icon> close </mat-icon>
+        </a>
+    </div>
+</form>

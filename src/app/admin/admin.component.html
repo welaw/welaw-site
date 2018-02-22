@@ -1,0 +1,38 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            <h3>Admin</h3>
+        </mat-card-title>
+        <mat-card-subtitle></mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content fxLayout="column">
+        <div class="row">
+            <span class="label">Username</span>&nbsp;{{ (user | async)?.username }}
+        </div>
+        <div class="row" fxLayout fxLayoutAlign="start center">
+            <span class="label">Roles</span>&nbsp;
+            <mat-chip-list>
+                <mat-chip *ngFor="let role of (user | async)?.roles">{{ role }}</mat-chip>
+            </mat-chip-list>
+        </div>
+    </mat-card-content>
+    <mat-card-actions fxLayout fxLayoutAlign="end center">
+        <div class="hide-on-mobile">
+            <a mat-button routerLink="dashboard" routerLinkActive="active">
+                <mat-icon color="accent"> dashboard </mat-icon> Dashboard</a>
+            <a mat-button routerLink="operations" routerLinkActive="active">
+                <mat-icon color="accent"> build </mat-icon> Operations</a>
+        </div>
+        <div class="hide-on-monitor">
+            <button mat-button [matMenuTriggerFor]="menu">
+                <mat-icon> menu </mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <a mat-menu-item routerLink="dashboard" routerLinkActive="active">Dashboard</a>
+                <a mat-menu-item routerLink="operations" routerLinkActive="active">Operations</a>
+            </mat-menu>
+        </div>
+    </mat-card-actions>
+</mat-card>
+
+<router-outlet></router-outlet>

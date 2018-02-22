@@ -1,0 +1,39 @@
+<div *ngIf="commenting && !isMobile()" class="row" fxLayout fxLayoutAlign="center center">
+    <div class="commenting-notice">Annotations are active.</div>
+</div>
+
+<div *ngIf="commenting && isMobile()" class="row" fxLayout fxLayoutAlign="center center">
+    <div class="commenting-notice">Annotations are unavailable on mobile.</div>
+</div>
+
+<div *ngIf="!loggedIn()" class="row" fxLayoutAlign="center center">
+    <app-log-in [message]="'Log in to Comment'"></app-log-in>
+</div>
+
+<div class="row" id="my-comment" fxLayoutAlign="center center">
+    <a mat-button *ngIf="!commenting && loggedIn() && userComment == null" id="new-comment" (click)="createComment()">
+        <mat-icon color="accent"> add_box </mat-icon> Comment</a>
+    <div *ngIf="!commenting && loggedIn() && userComment != null" fxLayout fxLayoutGap="2em">
+        <div class="label" fxLayoutAlign="center center">My Comment</div>
+        <app-comment-item [comment]="userComment" (selectedChange)="onCommentSelected($event)">
+            </app-comment-item>
+            <a mat-button id="new-comment" (click)="updateComment()" fxLayoutAlign="center center">
+                <mat-icon color="accent"> edit </mat-icon> Edit</a>
+    </div>
+</div>
+
+<div *ngIf="loading">
+    <mat-spinner class="section" color="accent" [mode]="indeterminate"></mat-spinner>
+</div>
+
+<div *ngIf="commenting" class="comment">
+    <form #commentForm="ngForm" [formGroup]="commentCtrl" (ngSubmit)="submit()" fxLayout="column" (ngCancel)="cancel()" fxLayoutAlign="center center">
+        <mat-form-field>
+            <textarea matInput formControlName="comment" matTextareaAutosize [matAutosizeMinRows]="4" placeholder="Comment (Optional)"></textarea>
+        </mat-form-field>
+        <div fxLayout fxLayoutGap="1em">
+            <button mat-button type="cancel" color="accent">Cancel</button>
+            <button mat-raised-button type="submit" color="accent">Submit</button>
+        </div>
+    </form>
+</div>

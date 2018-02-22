@@ -1,0 +1,26 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title><h3>Identify Verified</h3></mat-card-title>
+    </mat-card-header>
+    <mat-card-content fxLayout="column">
+        <p>Choose a username to continue, it can be changed at any time.</p>
+        <form [formGroup]="registerCtrl" (ngSubmit)="onSubmit()" fxLayout="column">
+            <mat-form-field>
+                <input
+                    matInput
+                    formControlName="username"
+                    type="text"
+                    required
+                    id="username"
+                    name="username"
+                    minlength="4"
+                    (input)="checkUsername($event)"
+                    placeholder="Username">
+            </mat-form-field>
+            <div class="row"><mat-checkbox formControlName="privacy" required></mat-checkbox>&nbsp;By clicking "Create" I agree to the <a routerLink="/privacy">Privacy Policy</a>.</div>
+            <div fxLayoutAlign="center center">
+                <button mat-raised-button [disabled]="!registerCtrl.valid" color="accent" type="submit">Create</button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

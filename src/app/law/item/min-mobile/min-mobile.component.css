@@ -1,0 +1,157 @@
+:host {
+    width: 100%;
+}
+
+.title {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+#short-title {
+    font-size: 1.2em;
+    padding: 0.5em;
+}
+
+#year {
+    font-size: 180%;
+    padding: 0.2em;
+    background-color: #536DFE;
+    color: white;
+}
+
+#month {
+    font-size: 180%;
+    padding: 0.2em;
+    background-color: #3D5AFE;
+    color: white;
+}
+
+#day {
+    font-size: 180%;
+    padding: 0.2em;
+    background-color: #304FFE;
+    color: white;
+}
+
+.name {
+    padding-top: 0.5em;
+}
+
+.mat-button {
+    border: 1px solid #cbcbcb;
+}
+
+.mat-card-avatar {
+    height: 70px;
+    width: 70px;
+    border-radius: 10px;
+}
+
+.selects {
+    padding: 1em;
+}
+
+.actions {
+    padding: 1em;
+    background-color: #FAFAFA;
+}
+
+mat-chip-list {
+    padding-left: 1em;
+}
+
+.tags {
+    padding: 1em;
+}
+
+mat-card {
+    padding: 0;
+}
+
+::ng-deep .mat-menu-content {
+    display: flex;
+    flex-direction: column;
+}
+
+::ng-deep .mat-menu-item {
+    padding: 0.5em;
+}
+
+.author {
+    padding-top: 1em;
+    padding-left: 1em;
+    padding-bottom: 0.5em;
+}
+
+.active {
+    background-color: silver;
+}
+
+a {
+    text-decoration: none;
+    -o-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    color: black;
+}
+
+a:hover {
+    -o-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    color: blue;
+}
+
+.yes-icon {
+    font-size: 0.7em;
+}
+
+.no-icon {
+    font-size: 0.7em;
+}
+
+.no-value {
+    font-size: 1.5em;
+    color: white;
+    background-color: #EF9A9A;
+}
+
+.no-value>a {
+    color: white;
+    padding: 0.5em;
+}
+
+.yes-value>a {
+    padding: 0.5em;
+    color: white;
+}
+
+.yes-value {
+    font-size: 1.5em;
+    color: white;
+    background-color: #A5D6A7;
+}
+
+.yes-label {
+    font-size: 0.7em;
+}
+
+.no-label {
+    font-size: 0.7em;
+}
+
+.votes {
+    margin-top: 1em;
+}
+
+.author-info {
+    padding-left: 1em;
+}
+
+.comments {
+    margin-right: 1em;
+}

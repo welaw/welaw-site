@@ -1,0 +1,16 @@
+
+#lawbody {
+    counter-reset: line;
+
+    ::ng-deep h1, h2, h3, p {
+        &:before {
+            counter-increment: line;
+            content: counter(line);
+            display: inline-block;
+            border-right: 1px solid #FAFAFA;
+            padding: 0 0.5em;
+            margin-right: 0.5em;
+            color: #888;
+        }
+    }
+}

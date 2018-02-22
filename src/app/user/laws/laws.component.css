@@ -1,0 +1,28 @@
+:host {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    margin-top: 1em;
+}
+
+.section {
+    margin-top: 2em;
+}
+
+.label {
+    color: silver;
+    text-align: center;
+}
+
+.heatmap {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+mat-paginator {
+    background: none;
+}

@@ -1,0 +1,10 @@
+<h3>Change Username</h3>
+<span class="silver">Current</span>
+<div class="label">{{ currentUsername }}</div>
+<form #nameForm="ngForm" (ngSubmit)="submit()">
+    <mat-input-container>
+        <input matInput [(ngModel)]="newUsername" type="text" required id="new-username" name="new-username">
+        <mat-placeholder>New Username</mat-placeholder>
+    </mat-input-container>
+    <button mat-raised-button [disabled]="!nameForm.form.valid" color="warn" type="submit">Submit</button>
+</form>

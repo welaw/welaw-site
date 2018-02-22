@@ -1,0 +1,65 @@
+<div class="section label" fxLayoutAlign="center center">
+    <small>Cast Vote</small>
+</div>
+
+<div *ngIf="!signedIn()" class="row" fxLayoutAlign="center center">
+    <app-log-in [message]="'Log in to Vote'"></app-log-in>
+</div>
+
+<div *ngIf="signedIn() && !hasVoted && !isVoting" class="row" fxLayoutAlign="center center">
+    <a mat-raised-button color="accent" (click)="beginVoting()">Vote on {{ (law | async)?.law?.short_title }}</a>
+</div>
+
+<div *ngIf="signedIn() && hasVoted">
+    <div class="row" fxLayout="column" fxLayoutAlign="center center">
+        <app-user-item-vote-desktop [vote]="vote | async" fxFlex="50%" fxFlex.xs="1 0 auto"></app-user-item-vote-desktop>
+    </div>
+    <div *ngIf="!isVoting" class="row" fxLayoutAlign="center center">
+        <a mat-raised-button color="accent" (click)="beginVoting()">Change Vote</a>
+    </div>
+</div>
+
+<div *ngIf="signedIn() && isVoting" class="row">
+    <mat-card>
+        <mat-card-content>
+            <div #lawbody id="lawbody" (scroll)="onScroll($event)" [innerHtml]="viewBody"></div>
+        </mat-card-content>
+    </mat-card>
+
+    <div class="row" fxLayoutAlign="center center">
+        <form #voteForm="ngForm" [formGroup]="voteCtrl" (ngSubmit)="submit()" fxLayout="column" fxFlex="1 0 auto">
+            <div class="row" fxLayoutAlign="center center">
+                <mat-button-toggle-group #group="matButtonToggleGroup" formControlName="vote" required>
+                    <mat-button-toggle value="no" id="no-button">
+                        <mat-icon> thumb_down </mat-icon> No</mat-button-toggle>
+                    <mat-button-toggle value="yes" id="yes-button">
+                        <mat-icon> thumb_up </mat-icon> Yes</mat-button-toggle>
+                </mat-button-toggle-group>
+            </div>
+            <div class="row" fxLayoutAlign="center center">
+                <mat-form-field id="comment">
+                    <textarea matInput matTextareaAutosize [matAutosizeMinRows]="4" formControlName="comment" placeholder="Comment (Optional)"></textarea>
+                </mat-form-field>
+            </div>
+            <div class="row" fxLayoutAlign="center center">
+                <button mat-button type="reset">Clear</button>
+                <button mat-raised-button [disabled]="!voteCtrl.valid" color="accent" type="submit">{{ hasVoted ? 'Recast' : 'Cast' }}</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div *ngIf="!isVoting && (votes | async)?.length > 0" fxLayout="column" fxLayoutAlign="center center">
+    <div class="section">
+        <mat-icon> dialpad </mat-icon>
+    </div>
+    <div class="row label">
+        <div class="label">Recent Votes (
+            <a routerLink="list">View All</a>)</div>
+    </div>
+    <div fxLayout="row" fxLayoutWrap fxLayout.xs="column" fxFill fxLayoutAlign="center center" fxLayoutGap="10px">
+        <div *ngFor="let v of votes | async" fxFlex="45%" fxFill class="vote">
+            <app-user-item-vote-desktop [vote]="v" fxFill></app-user-item-vote-desktop>
+        </div>
+    </div>
+</div>

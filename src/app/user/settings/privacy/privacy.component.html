@@ -1,0 +1,8 @@
+<h3>Privacy Settings</h3>
+<form #nameForm="ngForm" [formGroup]="toggleCtrl" (ngSubmit)="submit()">
+    <mat-slide-toggle formControlName="fullNamePrivate">Full Name Private</mat-slide-toggle>
+    <mat-slide-toggle formControlName="emailPrivate">Email Private</mat-slide-toggle>
+    <div class="row">
+        <button mat-raised-button [disabled]="!toggleCtrl.valid" color="accent" type="submit">Submit</button>
+    </div>
+</form>

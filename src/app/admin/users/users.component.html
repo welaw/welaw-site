@@ -1,0 +1,63 @@
+<div class="row controls">
+  <a mat-icon-button matTooltip="Create User"><mat-icon> add </mat-icon></a>
+
+  <mat-select placeholder="User Type" (change)="userOptionChanged($event)" [(ngModel)]="userOption" class="col">
+    <mat-option *ngFor="let o of userOptions" selected="o == 'Public'" [value]="o.toLowerCase()">{{ o }}</mat-option>
+  </mat-select>
+</div>
+
+<div class="row">
+  <mat-table #table [dataSource]="usersDataSource">
+    <ng-container matColumnDef="username">
+      <mat-header-cell *matHeaderCellDef> Username </mat-header-cell>
+      <mat-cell *matCellDef="let element"> <a routerLink="/u/{{ element.username }}">{{ element.username }}</a><a routerLink="/u/{{ element.username }}/admin"><mat-icon class="admin-icon" color="warn"> build </mat-icon></a></mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="full_name">
+      <mat-header-cell *matHeaderCellDef> Full Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.full_name }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.email }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="provider">
+      <mat-header-cell *matHeaderCellDef> Provider </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.provider }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="last_login">
+      <mat-header-cell *matHeaderCellDef> Last Login </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.last_login }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="created_at">
+      <mat-header-cell *matHeaderCellDef> Created At </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.created_at }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="deleted_at">
+      <mat-header-cell *matHeaderCellDef> Deleted At </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.deleted_at }} </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <mat-paginator
+       [length]="length"
+       [pageSize]="pageSize"
+       [pageSizeOptions]="pageSizeOptions"
+       (page)="pageEvent = getServerData($event)"></mat-paginator>
+</div>
+
+<!--<div class="row">-->
+  <!--<filter></filter>-->
+<!--</div>-->
+
+<!--<div *ngFor="let u of users | async" class="row">-->
+  <!--<user-item-small [user]="u"></user-item-small>-->
+<!--</div>-->
+
+<!--<div class="row">-->
+  <!--<mat-paginator-->
+       <!--[length]="length"-->
+       <!--[pageSize]="pageSize"-->
+       <!--[pageSizeOptions]="pageSizeOptions"-->
+       <!--(page)="pageEvent = getServerData($event)"></mat-paginator>-->
+<!--</div>-->

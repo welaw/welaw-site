@@ -1,0 +1,19 @@
+.row {
+    margin-top: 1em;
+}
+
+mat-paginator {
+    background: none;
+}
+
+app-user-item-small {
+    margin-top: 1em;
+}
+
+app-user-item-small:nth-child(odd) {
+    padding-right: 0.5em;
+}
+
+app-user-item-small:nth-child(even) {
+    padding-left: 0.5em;
+}

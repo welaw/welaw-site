@@ -1,0 +1,35 @@
+<div class="calendar" fxLayout>
+    <div fxFlex="50%" id="day" fxLayoutAlign="center center">{{ d.getDate() }}</div>
+    <div fxFlex="30%" id="month" fxLayoutAlign="center center">{{ months[d.getMonth()].substr(0, 3) }}</div>
+    <div fxFlex="20%" id="year" fxLayoutAlign="center center">{{ d.getFullYear() }}</div>
+</div>
+<div class="titles" fxLayout="column">
+    <div class="tags" fxLayout>
+        <a id="short-title" routerLink="/{{ law?.law?.upstream }}/{{ law?.law?.ident }}/{{ law?.branch?.name }}">{{ law?.law?.short_title }}</a>
+        <mat-chip-list>
+        <mat-chip class="tag-1">{{ law?.version?.tag_1 }}</mat-chip>
+        <mat-chip class="tag-2">{{ law?.version?.tag_2 }}</mat-chip>
+        <mat-chip class="tag-3">{{ law?.version?.tag_3 }}</mat-chip>
+        </mat-chip-list>
+    </div>
+    <div class="title">{{ law?.law?.title }}</div>
+</div>
+<div class="author" fxLayout fxLayoutAlign="start center">
+    <img mat-card-avatar class="avatar-image" src="{{ law?.author?.picture_url }}" (error)="avatarUrlError($event)">
+    <div class="author-info">
+    <a class="username" routerLink="/u/{{ law?.author?.username }}" fxLayoutAlign="start center"><mat-icon color="accent"> account_box </mat-icon> {{ law?.author?.username }}</a>
+    <a class="name" routerLink="/u/{{ law?.author?.username }}">{{ law?.author?.full_name }}</a>
+</div>
+<div fxFlex="1 0 auto"></div>
+    <div *ngIf="!full" class="comments" fxLayoutAlign="end center">
+        <mat-icon color="accent"> comments </mat-icon>&nbsp;{{ law?.version?.comment_count == null ? 0 : law.version.comment_count }}
+    </div>
+</div>
+<div class="votes" fxLayout fxLayoutAlign="center center">
+    <div class="no-value" [ngStyle]="{'flex': noFlex, 'background-color': noColor}">
+        <a routerLink="/{{ law?.law?.upstream }}/{{ law?.law?.ident }}/master/latest/vote"><mat-icon class="small no-icon" fxLayoutAlign="center center"> thumb_down </mat-icon><span fxFlex="1 0 auto" fxLayoutAlign="center center">{{ law?.version?.nays || 0 }}</span></a>
+    </div>
+    <div class="yes-value" [ngStyle]="{'flex': yesFlex, 'background-color': yesColor}">
+        <a routerLink="/{{ law?.law?.upstream }}/{{ law?.law?.ident }}/master/latest/vote"><span fxFlex="1 0 auto" fxLayoutAlign="center center">{{ law?.version?.yays || 0 }}</span><mat-icon class="small yes-icon" fxLayoutAlign="center center"> thumb_up </mat-icon></a>
+    </div>
+</div>

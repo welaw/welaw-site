@@ -1,0 +1,38 @@
+:host {
+    margin: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+.controls {
+    padding: 1em;
+}
+
+.label {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.active {
+    background-color: silver;
+}
+
+h3 {
+    color: #F44336;
+}
+
+.row {
+    margin-top: 1em;
+}
+
+@media only screen and (max-width: 700px) {
+    .hide-on-mobile {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    .hide-on-monitor {
+        display: none;
+    }
+}

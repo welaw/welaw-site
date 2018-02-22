@@ -1,0 +1,40 @@
+<div *ngIf="loading" class="loading">
+    <mat-spinner color="accent" [mode]="indeterminate"></mat-spinner>
+</div>
+
+<div *ngIf="!loading" class="row">
+    <mat-card>
+        <mat-card-content>
+            <div class="law" id="lawbody" #lawbody [innerHtml]="viewBody" [ngStyle]="{'height': lawHeight}"></div>
+            <div *ngIf="!expanded" class="expand" (click)="expand()">Expand</div>
+            <div *ngIf="expanded" class="expand" (click)="collapse()">Collapse</div>
+        </mat-card-content>
+    </mat-card>
+</div>
+
+<div *ngIf="!loading" class="row" #commentsRef>
+    <app-law-comments [law]="law | async" [viewComment]="viewComment | async" [userComment]="userComment | async" (stateChange)="onCommentStateChanged($event)">
+    </app-law-comments>
+</div>
+
+<span id="comments"></span>
+<div *ngIf="!loading && (comments | async).length == 0" class="section label" fxLayoutAlign="center center">No Comments Found</div>
+<div *ngIf="!loading && (comments | async).length > 0" fxLayout="row">
+    <div class="section label" fxLayoutAlign="center center">Comments</div>
+    <div fxFlex="1 0 auto"></div>
+    <div class="row" fxLayout fxLayoutAlign="center center">
+        <span class="label"><small>Order By</small></span>
+        <mat-button-toggle-group>
+            <mat-button-toggle>Votes</mat-button-toggle>
+            <mat-button-toggle>Date</mat-button-toggle>
+        </mat-button-toggle-group>
+    </div>
+</div>
+
+<div *ngIf="!loading" class="section" fxLayoutWrap fxLayoutPadding="1em" fxLayoutGap="1em">
+    <app-comment-item [comment]="c" *ngFor="let c of comments | async" (onCommentSelected)="onCommentSelected($event)" fxFlex="30%"></app-comment-item>
+</div>
+
+<div *ngIf="!loading" class="row">
+    <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="pageEvent = getServerData($event)"></mat-paginator>
+</div>

@@ -1,0 +1,61 @@
+<mat-card>
+    <mat-card-header>
+        <img mat-card-avatar src="{{ user?.picture_url }}" (error)="avatarUrlError($event)">
+        <mat-card-title>
+            <a routerLink="/u/{{ user?.username }}" class="username">
+                <mat-icon color="accent"> account_box </mat-icon>{{ user?.username }}</a>
+        </mat-card-title>
+        <mat-card-subtitle>
+            <a routerLink="/u/{{ user?.username }}" class="full-name">{{ user?.full_name }}
+                <mat-icon *ngIf="user?.full_name_private && owner" matTooltip="This field is hidden to other users.">
+                lock </mat-icon>
+            </a>
+            <div class="email">{{ user?.email }}
+                <mat-icon *ngIf="user?.email_private && owner" matTooltip="This field is hidden to other users.">
+                lock </mat-icon>
+            </div>
+        </mat-card-subtitle>
+        <!--<div class="record">-->
+        <!--<div class="laws">-->
+        <!--<div class="title">Laws</div>-->
+        <!--<div class="value"><a routerLink="/u/{{ user?.username }}">{{ user?.lawCount == undefined ? 0 : user.lawCount }}</a></div>-->
+        <!--</div>-->
+        <!--<div class="votes">-->
+        <!--<div class="title">Votes</div>-->
+        <!--<div class="value"><a routerLink="/u/{{ user?.username }}/votes">{{ user?.voteCount == undefined ? 0 : user.voteCount }}</a></div>-->
+        <!--</div>-->
+        <!--</div>-->
+    </mat-card-header>
+    <mat-card-content>
+        <div class="actions">
+            <a mat-icon-button color="accent" routerLink="profile" routerLinkActive="active">
+                <mat-icon aria-label="info"> info </mat-icon>
+            </a>
+
+            <div fxFlex="1 0 auto"></div>
+
+            <div class="hide-on-mobile">
+                <a mat-button routerLink="." routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" matTooltip="0">
+                    <mat-icon color="accent"> chrome_reader_mode </mat-icon> Laws</a>
+                <a mat-button routerLink="votes" routerLinkActive="active">
+                    <mat-icon color="accent" matTooltip="0"> assignment_turned_in </mat-icon> Votes</a>
+                <a *ngIf="owner || admin" mat-button routerLink="settings" routerLinkActive="active">
+                    <mat-icon color="accent"> settings </mat-icon> Settings</a>
+                <a *ngIf="admin" mat-button routerLink="admin" routerLinkActive="active">
+                    <mat-icon color="warn"> build </mat-icon> Admin</a>
+            </div>
+
+            <div class="hide-on-monitor">
+                <button mat-button [matMenuTriggerFor]="menu">
+                    <mat-icon> menu </mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                    <a mat-menu-item routerLink="." routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Laws</a>
+                    <a mat-menu-item routerLink="votes" routerLinkActive="active">Votes</a>
+                    <a *ngIf="owner || admin" mat-menu-item routerLink="settings" routerLinkActive="active">Settings</a>
+                    <a *ngIf="admin" mat-menu-item routerLink="admin" routerLinkActive="active" color="warn">Admin</a>
+                </mat-menu>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

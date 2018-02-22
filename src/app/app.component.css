@@ -1,0 +1,43 @@
+:host {
+    display: flex;
+    flex-direction: column;
+}
+
+router-outlet {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.router-container {
+    max-width: 1000px;
+    width: 100%;
+}
+
+footer {
+    margin-top: 8em;
+    padding: 10px;
+    text-align: center;
+}
+
+mat-sidenav-container {
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+}
+
+.sidenav-content {
+    min-height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+a.active {
+    cursor: default;
+    pointer-events: none;
+    text-decoration: none;
+}
+
+a.active>mat-icon {
+    color: silver;
+}

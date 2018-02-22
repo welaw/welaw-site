@@ -1,0 +1,23 @@
+<app-upstream-item-small [upstream]="upstream | async"></app-upstream-item-small>
+
+<div class="row">
+    <app-law-item-full-desktop *ngIf="!isMobile()"
+        [law]="law | async"
+        [upstream]="upstream | async"
+        [branches]="branches | async"
+        [versions]="versions | async"
+        (branchChange)="onBranchChanged($event)"
+        (versionChange)="onVersionChanged($event)">
+    </app-law-item-full-desktop>
+    <app-law-item-full-mobile *ngIf="isMobile()"
+        [full]="true"
+        [law]="law | async"
+        [upstream]="upstream | async"
+        [branches]="branches | async"
+        [versions]="versions | async"
+        (branchChange)="onBranchChanged($event)"
+        (versionChange)="onVersionChanged($event)">
+    </app-law-item-full-mobile>
+</div>
+
+<router-outlet></router-outlet>

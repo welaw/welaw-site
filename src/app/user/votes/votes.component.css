@@ -1,0 +1,23 @@
+.row {
+    margin-top: 1em;
+}
+
+.section {
+    margin-top: 2em;
+}
+
+.heatmap {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.active {
+    background-color: silver;
+}
+
+.label {
+    text-align: center;
+    color: silver;
+}

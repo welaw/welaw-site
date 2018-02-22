@@ -1,0 +1,58 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    /*flex-wrap: wrap;*/
+}
+
+.container {
+    margin-top: 1em;
+}
+
+.row {
+  margin-top: 1em;
+}
+
+mat-card {
+  margin-top: 1em;
+}
+
+mat-card-content {
+  background-color: #B0BEC5;
+}
+
+.mat-card-title {
+  font-size: 1.2em;
+}
+
+.mat-card-title > a > mat-icon {
+  margin-right: 0.5em;
+}
+
+.label {
+  font-size: 1em;
+  color: white;
+}
+
+.value {
+  color: white;
+  font-size: 4em;
+}
+
+a {
+  text-decoration: none;
+  -o-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  color: blue;
+}
+
+a:hover {
+  -o-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  color: black;
+}

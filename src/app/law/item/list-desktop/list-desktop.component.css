@@ -1,0 +1,48 @@
+mat-card-footer {
+    margin: 0;
+}
+
+mat-card {
+    padding: 0;
+    height: 130px;
+}
+
+mat-card-content {
+    margin-bottom: 0;
+    height: 100%;
+}
+
+.author-info {
+    padding-top: 1em;
+}
+
+@media only screen and (max-width: 700px) {
+    .hide-on-mobile {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    .hide-on-monitor {
+        display: none;
+    }
+}
+
+a {
+    text-decoration: none;
+    -o-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    color: blue;
+}
+
+a:hover {
+    -o-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    color: black;
+}

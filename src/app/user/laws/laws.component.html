@@ -1,0 +1,28 @@
+<div class="row label">Laws</div>
+
+<div class="row heatmap" (window:resize)="onResize($event)">
+    <div id="heatmap-laws"></div>
+</div>
+
+<div *ngIf="!hasLaws" class="section label">
+    No Laws Found
+</div>
+
+<div *ngIf="hasLaws">
+    <div class="row">
+        <app-filter [opts]="filterOpts" (change)="onFilterChanged($event)"></app-filter>
+    </div>
+
+    <div class="row" *ngFor="let law of laws | async">
+        <app-law-item-min-desktop *ngIf="!isMobile()" [law]="law"></app-law-item-min-desktop>
+        <app-law-item-min-mobile *ngIf="isMobile()" [law]="law"></app-law-item-min-mobile>
+    </div>
+
+    <div class="row">
+        <mat-paginator
+            [length]="length"
+            [pageSize]="pageSize"
+            [pageSizeOptions]="pageSizeOptions"
+            (page)="pageEvent = getServerData($event)"></mat-paginator>
+    </div>
+</div>

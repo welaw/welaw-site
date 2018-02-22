@@ -1,0 +1,80 @@
+:host {
+    padding-top: 1em;
+}
+
+.cell {
+    width: 50%;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: center;
+    width: 100%;
+    flex: 1;
+}
+
+.label {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    color: silver;
+    padding-top: 1.5em;
+    padding-bottom: 1em;
+}
+
+.centered {
+    text-align: center;
+}
+
+.mat-form-field {
+    max-width: 400px;
+    min-width: 300px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.row {
+    padding-top: 1em;
+    width: 50%;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    flex-grow: 1;
+    height: 100%;
+}
+
+.col:nth-child(even) {
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+}
+
+.col:nth-child(odd) {
+    justify-content: flex-end;
+    align-items: flex-end;
+    align-content: flex-end;
+}
+
+.controls {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-top: 2em;
+}

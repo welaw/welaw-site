@@ -1,0 +1,42 @@
+<mat-card>
+    <mat-card-content fxlayout="column">
+
+        <app-law-item-body-mobile [law]="law"></app-law-item-body-mobile>
+
+        <div class="selects" fxLayout="column" *ngIf="full" fxLayout="column">
+            <mat-form-field id="branch">
+                <mat-select class="branch" placeholder="Branch" (change)="onBranchChanged($event.value)" [(ngModel)]="branch">
+                    <mat-option *ngFor="let set of branches" [value]="set.branch.name">{{ set.branch.name }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field id="version">
+                <mat-select class="version" placeholder="Version" (change)="onVersionChanged($event.value)" [(ngModel)]="version">
+                    <mat-option *ngFor="let set of versions" [value]="'' + set.version.version">
+                        {{ set.version.version }}
+                        <span *ngIf="set?.version?.tag_4 != ''"> - {{ set.version.tag_4 }}</span>
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="actions" fxLayout *ngIf="full">
+            <div class="share">
+                <a mat-icon-button color="accent" (click)="shareDialog()">
+                    <mat-icon aria-label="share"> share </mat-icon>
+                </a>
+            </div>
+            <div class="spacer" fxFlex="1 0 auto"></div>
+            <button mat-button [matMenuTriggerFor]="menu">
+                <mat-icon> menu </mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <a mat-menu-item color="error" routerLink="." routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Read</a>
+                <a mat-menu-item color="error" routerLink="diff" routerLinkActive="active">Compare</a>
+                <a mat-menu-item color="error" routerLink="improve" routerLinkActive="active">Improve</a>
+                <a *ngIf="!hasVoted()" mat-menu-item color="error" routerLink="vote" routerLinkActive="active">Vote</a>
+                <a *ngIf="hasVoted()" mat-menu-item color="accent" routerLink="vote" routerLinkActive="active">Vote</a>
+            </mat-menu>
+        </div>
+
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,36 @@
+<mat-card>
+    <mat-card-content>
+        <div class="content">
+            <app-law-item-body-desktop [law]="law"></app-law-item-body-desktop>
+            <app-law-item-author-desktop [law]="law"></app-law-item-author-desktop>
+        </div>
+
+        <div class="actions">
+            <div class="hide-on-mobile">
+
+                <div class="selects">
+                    <mat-form-field id="branch">
+                        <mat-select class="branch" placeholder="Branch" (change)="onBranchChanged($event.value)" [(ngModel)]="branch">
+                            <mat-option *ngFor="let set of branches" [value]="set.branch.name">{{ set.branch.name }}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field id="version">
+                        <mat-select class="version" placeholder="Version" (change)="onVersionChanged($event.value)" [(ngModel)]="version">
+                            <mat-option *ngFor="let set of versions" [value]="'' + set.version.version">
+                                {{ set.version.version }}
+                                <span *ngIf="set?.version?.tag_4 != null"> - {{ set.version.tag_4 }}</span>
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="spacer"></div>
+            </div>
+            <div class="hide-on-monitor">
+            </div>
+        </div>
+
+    </mat-card-content>
+    <mat-card-footer>
+        <mat-progress-bar matTooltip="Passed House" mode="determinate" value="4" color="accent"></mat-progress-bar>
+    </mat-card-footer>
+</mat-card>

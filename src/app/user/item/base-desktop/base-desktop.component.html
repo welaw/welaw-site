@@ -1,0 +1,12 @@
+<img mat-card-avatar src="{{ user?.picture_url }}" (error)="avatarUrlError($event)">
+<div class="user-info" fxLayout="column">
+    <a routerLink="/u/{{ user?.username }}" class="username">
+        <mat-icon color="accent"> account_box </mat-icon>{{ user?.username }}</a>
+    <a routerLink="/u/{{ user?.username }}" class="full-name">{{ user?.full_name }}
+        <mat-icon *ngIf="user?.full_name_private && owner" matTooltip="This field is hidden to other users.">
+        lock </mat-icon>
+    </a>
+    <div class="email">{{ user?.email }}
+        <mat-icon *ngIf="user?.email_private && owner" matTooltip="This field is hidden to other users."> lock </mat-icon>
+    </div>
+</div>

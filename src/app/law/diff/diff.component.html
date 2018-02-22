@@ -1,0 +1,35 @@
+<div class="section" fxLayoutAlign="center center">
+    <span class="compare">
+        <small>Compare To</small>
+    </span>
+</div>
+
+<div class="row">
+    <app-law-item-diff-desktop
+        *ngIf="!isMobile()"
+        [law]="theirs | async"
+        [branches]="branches | async"
+        [versions]="versions | async"
+        (branchChange)="onBranchChanged($event)"
+        (versionChange)="onVersionChanged($event)"></app-law-item-diff-desktop>
+    <app-law-item-full-mobile
+        *ngIf="isMobile()"
+        [law]="theirs | async"></app-law-item-full-mobile>
+</div>
+
+<div *ngIf="!diffing && viewBody == ''" class="section" fxLayoutAlign="center center">
+    No Difference
+</div>
+
+<div *ngIf="diffing" class="section" fxLayout="column" fxLayoutAlign="center center">
+    Computing Difference
+    <mat-spinner color="accent" [mode]="indeterminate"></mat-spinner>
+</div>
+
+<div *ngIf="viewBody != ''" class="row">
+    <mat-card>
+        <mat-card-content>
+            <div #lawbody [innerHtml]="viewBody"></div>
+        </mat-card-content>
+    </mat-card>
+</div>

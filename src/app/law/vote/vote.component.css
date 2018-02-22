@@ -1,0 +1,58 @@
+#yes-button {
+    color: #00C853;
+}
+
+#no-button {
+    color: #F44336;
+}
+
+.vote-value {
+    padding: 2em;
+    border: 2px solid silver;
+    /* background-color: mat-color($mat-indigo, A200); */
+    border-radius: 25px;
+}
+
+.label {
+    color: silver;
+}
+
+.row {
+    margin-top: 1em;
+}
+
+.section {
+    margin-top: 2em;
+}
+
+#comment {
+    margin-top: 1em;
+    min-width: 300px;
+    max-width: 400px;
+    flex: 1 0 auto;
+}
+
+.voting {
+    border: 1 1 1 1;
+    border-radius: 2px;
+    border-width: 1px;
+    border-color: black;
+}
+
+mat-card {
+    padding: 0;
+}
+
+app-user-item-vote-desktop {
+    padding: 10px;
+}
+
+#lawbody {
+    height: 30em;
+    overflow: auto;
+    padding: 1em;
+}
+
+mat-button-toggle {
+    padding: 1em;
+}

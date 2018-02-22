@@ -1,0 +1,11 @@
+<div class="row">
+    <app-filter [opts]="filterOpts" (change)="onFilterChanged($event)"></app-filter>
+</div>
+
+<div class="row" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutAlign="center center">
+    <app-user-item-small *ngFor="let user of lawMakers | async" fxFlex="50%" [user]="user"></app-user-item-small>
+</div>
+
+<div class="row">
+    <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="pageEvent = getServerData($event)"></mat-paginator>
+</div>

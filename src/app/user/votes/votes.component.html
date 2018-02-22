@@ -1,0 +1,23 @@
+<div class="row label">Votes</div>
+
+<div class="row heatmap" (window:resize)="onResize($event)">
+    <div id="heatmap-votes"></div>
+</div>
+
+<div *ngIf="!hasVotes" class="section label">
+    No Votes Found
+</div>
+
+<div *ngIf="hasVotes" class="row">
+    <div class="row">
+        <app-filter [opts]="filterOpts" (change)="onFilterChanged($event)"></app-filter>
+    </div>
+
+    <div class="row" *ngFor="let vote of votes | async">
+        <app-law-item-vote [vote]="vote"></app-law-item-vote>
+    </div>
+
+    <div class="row">
+        <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="pageEvent = getServerData($event)"></mat-paginator>
+    </div>
+</div>

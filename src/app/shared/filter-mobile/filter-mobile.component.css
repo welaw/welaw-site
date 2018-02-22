@@ -1,0 +1,43 @@
+:host {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    /*text-align: center;*/
+}
+
+.spacer {
+    flex: 1;
+}
+
+.hide-on-mobile {
+    display: flex;
+    flex-direction: row;
+    justify-content: center-left;
+    align-items: center-left;
+    align-content: center-left;
+}
+
+.hide-on-monitor {
+    display: flex;
+    justify-content: center;
+}
+
+.menu-search {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+}
+
+@media only screen and (max-width: 700px) {
+    .hide-on-mobile {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    .hide-on-monitor {
+        display: none;
+    }
+}

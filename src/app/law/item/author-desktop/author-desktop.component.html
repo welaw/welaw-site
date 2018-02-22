@@ -1,0 +1,8 @@
+<!--<mat-icon *ngIf="law?.author?.upstream == '' || law?.author?.upstream == undefined" class="star"> star </mat-icon>-->
+<!--<div class="author-info" fxLayout="column" fxLayoutAlign="start end">-->
+<div class="author-info">
+    <a class="username" routerLink="/u/{{ law?.author?.username }}">
+        <mat-icon color="accent"> account_box </mat-icon> {{ law?.author?.username }}</a>
+    <a class="name" routerLink="/u/{{ law?.author?.username }}">{{ law?.author?.full_name }}</a>
+</div>
+<img class="avatar-image" src="{{ law?.author?.picture_url }}" (error)="avatarUrlError($event)">

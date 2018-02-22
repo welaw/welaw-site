@@ -1,0 +1,37 @@
+:host {
+    display: flex;
+    flex-direction: column;
+}
+
+img {
+    margin-right: 1em;
+}
+
+.mat-card-title {
+    font-size: 1.2em;
+}
+
+.mat-card-avatar {
+    height: 70px;
+    width: 70px;
+    border-radius: 0;
+}
+
+a {
+    text-decoration: none;
+    -o-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    color: black;
+}
+
+a:hover {
+    -o-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    color: blue;
+}

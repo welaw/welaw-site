@@ -1,0 +1,22 @@
+:host {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    margin-top: 1em;
+}
+
+mat-card-container,
+mat-card-content {
+    display: flex;
+}
+
+.centered {
+    text-align: center;
+}
+
+#heatmap-laws {
+    padding: 2em;
+}

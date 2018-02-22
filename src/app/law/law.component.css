@@ -1,0 +1,13 @@
+:host {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+.control {
+    margin-right: 1em;
+}
+
+.row {
+    margin-top: 1em;
+}

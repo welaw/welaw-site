@@ -1,0 +1,24 @@
+<mat-card>
+    <mat-card-content fxLayout fxFill>
+        <img mat-card-avatar src="{{ user?.picture_url }}" (error)="avatarUrlError($event)">
+        <div class="body" fxLayout="column" fxFlex="1 0 auto">
+            <a routerLink="/u/{{ user?.username }}" id="username" fxLayoutAlign="start center">
+                <mat-icon color="accent">account_box </mat-icon> {{ user?.username }}</a>
+            <a routerLink="/u/{{ user?.username }}" id="full-name">{{ user?.full_name }}</a>
+        </div>
+        <div class="record" fxLayout>
+            <div class="laws" fxLayout="column" fxFlex="1 1">
+                <div class="title">Laws</div>
+                <div class="value" fxLayoutAlign="center center" fxFill>
+                    <a routerLink="/u/{{ user?.username }}">{{ user?.law_count == undefined ? 0 : user.law_count }}</a>
+                </div>
+            </div>
+            <div class="votes" fxLayout="column" fxFlex="1 1">
+                <div class="title">Votes</div>
+                <div class="value" fxLayoutAlign="center center" fxFill>
+                    <a routerLink="/u/{{ user?.username }}/votes">{{ user?.vote_count == undefined ? 0 : user.vote_count }}</a>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

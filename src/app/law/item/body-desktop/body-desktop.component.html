@@ -1,0 +1,67 @@
+<div fxLayout fxFill>
+
+    <!--<div class="calendar" fxLayout="column" fxFlex="15%">-->
+        <!--<div id="year" fxFlex="20%" fxLayoutAlign="center center">{{ d.getFullYear() }}</div>-->
+        <!--<div id="month" fxFlex="30%" fxLayoutAlign="center center">{{ months[d.getMonth()].substr(0, 3) }}</div>-->
+        <!--<div id="day" fxFlex="50%" fxLayoutAlign="center center">{{ d.getDate() }}</div>-->
+    <!--</div>-->
+
+    <div class="calendar" fxLayout="column" fxFlex="17%">
+        <div class="calendar-body" fxLayout="column" fxFlex="1 0 auto">
+            <div id="year">{{ months[d.getMonth()].substr(0, 3) }} {{ d.getFullYear() }}</div>
+            <div id="day" fxFlex="1 0 auto">{{ d.getDate() }}</div>
+        </div>
+    </div>
+
+    <!--<div class="vote" fxLayout="column" fxFill fxFlex="5%">-->
+        <!--<div class="yes-value" fxLayoutAlign="center center" [ngStyle]="{'flex': yesFlex, 'background-color': yesColor}">-->
+            <!--<a routerLink="/{{ law?.law?.upstream }}/{{ law?.law?.ident }}/master/latest/vote" fxLayout="column" fxLayoutAlign="center center">-->
+                <!--<mat-icon class="small yes-icon" fxLayoutAlign="center center"> thumb_up </mat-icon>{{ law?.version?.yays }}</a>-->
+        <!--</div>-->
+        <!--<div class="no-value" fxLayoutAlign="center center" [ngStyle]="{'flex': noFlex, 'background-color': noColor}">-->
+            <!--<a routerLink="/{{ law?.law?.upstream }}/{{ law?.law?.ident }}/master/latest/vote" fxLayout="column" fxLayoutAlign="center center">-->
+                <!--<mat-icon class="small no-icon" fxLayoutAlign="center center"> thumb_down </mat-icon>{{ law?.version?.nays }}</a>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <!--<div *ngIf="law?.version?.has_voted" id="my-vote" fxLayout="column" fxLayoutAlign="center center" matTooltip="Voted!">-->
+        <!--<mat-icon> star </mat-icon>-->
+    <!--</div>-->
+
+    <div fxLayout="column" fxFlex="83%">
+        <div fxLayout="row">
+            <a id="short-title" routerLink="/{{ law?.law?.upstream }}/{{ law?.law?.ident }}/{{ law?.branch?.name }}">{{ law?.law?.short_title }}</a>
+            <div class="tags-container" fxLayout>
+
+                <mat-chip-list class="tags" fxLayout="row">
+                    <mat-chip *ngIf="law?.version?.tag_1 != null" class="tag">{{ upstream?.tagLabel(1) }}: {{ law?.version?.tag_1 }}</mat-chip>
+                    <mat-chip *ngIf="law?.version?.tag_2 != null" class="tag">{{ upstream?.tagLabel(2) }}: {{ law?.version?.tag_2 }}</mat-chip>
+                    <mat-chip *ngIf="law?.version?.tag_3 != null" class="tag">{{ upstream?.tagLabel(3) }}: {{ law?.version?.tag_3 }}</mat-chip>
+                    <mat-chip *ngIf="law?.version?.tag_4 != null" class="tag">{{ upstream?.tagLabel(4) }}: {{ law?.version?.tag_4 }}</mat-chip>
+                </mat-chip-list>
+
+                <!--<mat-chip-list class="tags" fxLayout="row">-->
+                    <!--<mat-chip *ngIf="law?.version?.tag_1 != null" class="tag" matTooltip="{{ upstream?.tagLabel(1) }}">{{ law?.version?.tag_1 }}</mat-chip>-->
+                    <!--<mat-chip *ngIf="law?.version?.tag_2 != null" class="tag" matTooltip="{{ upstream?.tagLabel(2) }}">{{ law?.version?.tag_2 }}</mat-chip>-->
+                    <!--<mat-chip *ngIf="law?.version?.tag_3 != null" class="tag" matTooltip="{{ upstream?.tagLabel(3) }}">{{ law?.version?.tag_3 }}</mat-chip>-->
+                    <!--<mat-chip *ngIf="law?.version?.tag_4 != null" class="tag" matTooltip="{{ upstream?.tagLabel(4) }}">{{ law?.version?.tag_4 }}</mat-chip>-->
+                <!--</mat-chip-list>-->
+
+                <!--<div class="tags" fxLayout="row">-->
+                    <!--<div *ngIf="law?.version?.tag_1 != null" class="tag" matTooltip="{{ upstream?.tagLabel(1) }}">{{ law?.version?.tag_1 }}</div>-->
+                    <!--<div *ngIf="law?.version?.tag_2 != null" class="tag" matTooltip="{{ upstream?.tagLabel(2) }}">{{ law?.version?.tag_2 }}</div>-->
+                    <!--<div *ngIf="law?.version?.tag_3 != null" class="tag" matTooltip="{{ upstream?.tagLabel(3) }}">{{ law?.version?.tag_3 }}</div>-->
+                    <!--<div *ngIf="law?.version?.tag_4 != null" class="tag" matTooltip="{{ upstream?.tagLabel(4) }}">{{ law?.version?.tag_4 }}</div>-->
+                <!--</div>-->
+
+                <div class="comments">
+                    <a routerLink="/{{ law?.law?.upstream }}/{{ law?.law?.ident }}/{{ law?.branch?.name == null ? 'master' : law.branch.name }}/{{ law?.version?.version == null ? 'latest' : law.version.version }}"
+                        fragment="comments" (click)="goToAnchor('comments');">
+                        <mat-icon color="accent"> comments </mat-icon>&nbsp;{{ law?.version?.comment_count == null ? 0 : law.version.comment_count
+                        }}</a>
+                </div>
+            </div>
+        </div>
+        <div class="title" fxFlex="1 0 auto">{{ law?.law?.title }}</div>
+    </div>
+</div>

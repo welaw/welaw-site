@@ -1,0 +1,130 @@
+<form #voteForm="ngForm" [formGroup]="userCtrl" (ngSubmit)="submit()" fxLayoutWrap fxLayoutGap="20px">
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title><h3>Admin</h3></mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="flex column">
+
+      <div class="form-container">
+
+        <div class="row label">
+          User
+        </div>
+
+        <div class="fields">
+          <div class="row">
+            <mat-form-field>
+              <input matInput placeholder="Username" formControlName="username">
+            </mat-form-field>
+          </div>
+
+          <div class="row">
+            <mat-form-field>
+              <input matInput placeholder="Full Name" formControlName="full_name">
+            </mat-form-field>
+            <mat-slide-toggle formControlName="full_name_private">Private</mat-slide-toggle>
+          </div>
+
+          <div class="row">
+            <mat-form-field>
+              <input matInput placeholder="Email" formControlName="email">
+            </mat-form-field>
+            <mat-slide-toggle formControlName="email_private">Private</mat-slide-toggle>
+          </div>
+          <div class="row">
+          <mat-form-field>
+            <input matInput placeholder="Biography" formControlName="biography">
+            <!--<textarea matInput formControlName="bodyDescription"></textarea>-->
+          </mat-form-field>
+          </div>
+          <div class="row">
+          <mat-form-field>
+            <input matInput placeholder="Picture URL" formControlName="picture_url">
+          </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row label">
+          Roles
+        </div>
+
+        <div class="row">
+          <a mat-icon-button><mat-icon> add </mat-icon></a>
+        </div>
+
+        <div class="row centered">
+          <mat-chip-list>
+            <mat-chip *ngFor="let r of userCtrl.value.roles">{{ r }}</mat-chip>
+          </mat-chip-list>
+        </div>
+      </div>
+
+      <div class="row controls">
+        <!--<button mat-raised-button type="reset">Reset</button>-->
+        <button mat-raised-button [disabled]="!userCtrl.valid" color="accent" type="submit">Submit</button>
+      </div>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Upstream</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+          <div class="row">
+          <mat-form-field>
+            <input matInput placeholder="Upstream" formControlName="upstream">
+          </mat-form-field>
+          </div>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Auth</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+          <div class="row">
+            <mat-form-field>
+              <input matInput placeholder="Provider" formControlName="provider">
+            </mat-form-field>
+          </div>
+          <div class="row">
+            <mat-form-field>
+              <input matInput placeholder="Provider ID" formControlName="provider_id">
+            </mat-form-field>
+          </div>
+          <div class="row">
+            <mat-form-field>
+              <input matInput placeholder="Password" formControlName="password">
+            </mat-form-field>
+            <button mat-button (click)="setPassword()">Set Password</button>
+          </div>
+
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Record</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+          <div class="row">
+          <mat-form-field>
+            <input matInput placeholder="Created At" formControlName="created_at">
+          </mat-form-field>
+          </div>
+          <div class="row">
+          <mat-form-field>
+            <input matInput placeholder="Updated At" formControlName="updated_at">
+          </mat-form-field>
+          </div>
+          <div class="row">
+          <mat-form-field>
+            <input matInput placeholder="Deleted At" formControlName="deleted_at">
+          </mat-form-field>
+          </div>
+  </mat-card-content>
+</mat-card>
+    </form>

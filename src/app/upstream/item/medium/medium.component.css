@@ -1,0 +1,61 @@
+:host {
+    display: flex;
+    flex-direction: column;
+}
+
+.mat-card-title {
+    font-size: 1.2em;
+}
+
+img {
+    margin-right: 1em;
+}
+
+.mat-button.active {
+    background-color: silver;
+}
+
+.mat-icon-button.active {
+    color: silver;
+}
+
+.mat-menu-item.active {
+    background-color: silver;
+}
+
+.mat-card-avatar {
+    height: 70px;
+    width: 70px;
+    border-radius: 0;
+}
+
+@media only screen and (max-width: 700px) {
+    .hide-on-mobile {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    .hide-on-monitor {
+        display: none;
+    }
+}
+
+a {
+    text-decoration: none;
+    -o-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    color: black;
+}
+
+a:hover {
+    -o-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    color: blue;
+}

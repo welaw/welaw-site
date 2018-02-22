@@ -1,0 +1,20 @@
+<div class="row filter">
+    <app-filter [opts]="filterOpts" (changed)="onFilterChanged($event)"></app-filter>
+</div>
+
+<div class="row" *ngFor="let law of laws | async">
+    <app-law-item-list-desktop
+        *ngIf="!isMobile()"
+        [law]="law"
+        [upstream]="upstream | async"
+        (version_change)="onVersionChanged($event)"></app-law-item-list-desktop>
+        <app-law-item-list-mobile
+            *ngIf="isMobile()"
+            [law]="law"
+            [full]="false">
+            </app-law-item-list-mobile>
+</div>
+
+<div class="row">
+    <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="pageEvent = getServerData($event)"></mat-paginator>
+</div>

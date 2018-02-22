@@ -1,0 +1,19 @@
+<app-toolbar></app-toolbar>
+<mat-sidenav-container>
+    <!--<mat-sidenav #sidenav mode="push" opened="false">-->
+    <!--<mat-nav-list>-->
+    <!--<a mat-list-item *ngFor="let l of laws | async">{{ l.shortTitle }}</a>-->
+    <!--</mat-nav-list>-->
+    <!--</mat-sidenav>-->
+    <div class="sidenav-content" fxLayout="column">
+        <div class="router-container">
+            <router-outlet></router-outlet>
+        </div>
+        <div fxFlex="1 0 auto"></div>
+        <footer>
+            <a routerLink="about" routerLinkActive="active">
+                <mat-icon color="accent"> info </mat-icon>
+            </a>
+        </footer>
+    </div>
+</mat-sidenav-container>

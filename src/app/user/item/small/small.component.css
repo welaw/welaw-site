@@ -1,0 +1,94 @@
+.row {
+    padding-top: 1em;
+}
+
+#full-name {
+    font-size: 1.2em;
+    padding-top: 0.5em;
+}
+
+img {
+    min-height: 100%;
+}
+
+.body {
+    padding: 1em;
+}
+
+.mat-button {
+    border: 1px solid #cbcbcb;
+}
+
+.active {
+    background-color: silver;
+}
+
+mat-card {
+    padding: 0;
+    height: 120px;
+    max-height: 120px;
+    overflow: hidden;
+}
+
+.mat-card-avatar {
+    height: 120px;
+    width: 120px;
+    border-radius: 0;
+}
+
+a {
+    text-decoration: none;
+    -o-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    color: #1A237E;
+}
+
+.value a {
+    text-decoration: none;
+    -o-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    color: white;
+}
+
+a:hover {
+    -o-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    color: blue;
+}
+
+.value a:hover {
+    -o-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    color: blue;
+}
+
+.laws {
+    background-color: #7986CB;
+}
+
+.votes {
+    background-color: #5C6BC0;
+}
+
+.title {
+    font-size: 80%;
+    padding-top: 1em;
+    padding-left: 1em;
+    color: white;
+}
+
+.value {
+    font-size: 200%;
+}

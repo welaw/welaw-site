@@ -1,0 +1,28 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.mat-button {
+    border: 1px solid #cbcbcb;
+}
+
+.row {
+    margin-top: 1em;
+}
+
+h3 {
+    color: silver;
+}
+
+.roles-label {
+    color: silver;
+    padding-right: 1em;
+}
+
+.active {
+    background-color: silver;
+}

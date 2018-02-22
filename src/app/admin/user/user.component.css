@@ -1,0 +1,30 @@
+.row {
+  padding-top: 1em;
+  text-align: center;
+}
+
+.label {
+  color: silver;
+  padding-top: 1em;
+}
+
+mat-card-title > h3 {
+  color: #F44336;
+}
+
+.mat-button {
+  border: 1px solid silver;
+}
+
+mat-form-field {
+  width: 100%;
+  max-width: 500px;
+}
+
+.centered,.controls {
+  text-align: center;
+}
+
+mat-card {
+  margin-bottom: 1em;
+}

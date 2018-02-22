@@ -1,0 +1,43 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1em;
+    padding-right: 1em;
+    align-items: center;
+}
+
+.row {
+    text-align: center;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 130px;
+}
+
+mat-radio-button {
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    color: silver;
+    padding-bottom: 1em;
+    margin-top: 1em;
+}
+
+.collapse {
+    margin-top: 1em;
+    text-align: center;
+}
+
+#search {
+    width: 250px;
+}
+
+form {
+    width: 100%;
+}

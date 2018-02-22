@@ -1,0 +1,38 @@
+:host {
+    display: flex;
+    flex-direction: column;
+}
+
+.commenting-notice {
+    border: 1px solid #F44336;
+    background-color: #FFCDD2;
+    padding: 2em;
+    text-align: center;
+}
+
+.section {
+    margin-top: 2em;
+}
+
+.row {
+    margin-top: 1em;
+}
+
+.label {
+    color: silver;
+}
+
+mat-form-field {
+    width: 350px;
+}
+
+mat-paginator {
+    background: none;
+}
+
+.comments {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}

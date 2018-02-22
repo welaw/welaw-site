@@ -1,0 +1,29 @@
+mat-card {
+    padding: 0;
+}
+
+.row {
+    margin-top: 1em;
+}
+
+.section {
+    margin-top: 2em;
+}
+
+textarea {
+    overflow: auto;
+}
+
+.label {
+    color: silver;
+}
+
+#edit {
+    padding: 2em;
+    max-height: 600px;
+    box-sizing: border-box;
+}
+
+.comment>mat-form-field {
+    width: 400px;
+}

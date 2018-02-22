@@ -1,0 +1,83 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            <h2>{{ upstreamCtrl.value.name }}</h2>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form #voteForm="ngForm" [formGroup]="upstreamCtrl" (ngSubmit)="submit()">
+
+            <div class="form-container">
+
+                <div class="cell label">Upstream</div>
+
+                <div class="cell">
+                    <div class="row">
+                        <mat-form-field>
+                            <input matInput placeholder="Ident" formControlName="ident">
+                        </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <mat-form-field>
+                            <input matInput placeholder="Name" formControlName="upstream_name">
+                        </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <mat-form-field>
+                            <input matInput placeholder="Description" formControlName="upstream_description">
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="cell label">Upstream Body</div>
+
+                <div class="cell upstream-info">
+                    <div class="row">
+                        <mat-form-field>
+                            <input matInput placeholder="Name" formControlName="name">
+                        </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <mat-form-field>
+                            <input matInput placeholder="Picture URL" formControlName="url">
+                        </mat-form-field>
+                    </div>
+                    <div class="row ctrl">
+                        <mat-form-field>
+                            <span class="description-label">Description</span>
+                            <textarea matInput formControlName="description"></textarea>
+                        </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <mat-form-field>
+                            <input matInput placeholder="Default User" formControlName="default_user">
+                        </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <mat-form-field>
+                            <input matInput placeholder="Location" formControlName="geo_coords">
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="cell label">Tags</div>
+
+                <div class="cell">
+                    <a mat-icon-button>
+                        <mat-icon> add </mat-icon>
+                    </a>
+                    <mat-chip-list>
+                        <mat-chip *ngFor="let t of upstreamCtrl.value.tags">{{ t.name }}</mat-chip>
+                    </mat-chip-list>
+                </div>
+            </div>
+
+            <div class="row controls">
+                <button mat-button type="reset">Reset</button>
+                <button mat-raised-button [disabled]="!upstreamCtrl.valid" color="accent" type="submit">Submit</button>
+            </div>
+
+        </form>
+
+    </mat-card-content>
+</mat-card>

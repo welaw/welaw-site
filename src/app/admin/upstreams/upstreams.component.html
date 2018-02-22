@@ -1,0 +1,47 @@
+<div>
+  <a mat-icon-button><mat-icon> add </mat-icon></a>
+</div>
+
+<div class="row">
+  <mat-table #table [dataSource]="upstreamsDataSource">
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> <a routerLink="/{{ element.ident }}">{{ element.name }}</a> </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="ident">
+      <mat-header-cell *matHeaderCellDef> Ident </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.ident }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="body_name">
+      <mat-header-cell *matHeaderCellDef> Body Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.bodyName }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="body_email">
+      <mat-header-cell *matHeaderCellDef> Body Email </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.bodyEmail }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="body_url">
+      <mat-header-cell *matHeaderCellDef> Body URL </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.bodyUrl }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="geo_coords">
+      <mat-header-cell *matHeaderCellDef> Geo Coords </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.geoCoords }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="created_at">
+      <mat-header-cell *matHeaderCellDef> Created At </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.createdAt }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="deleted_at">
+      <mat-header-cell *matHeaderCellDef> Deleted At </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.deletedAt }} </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <mat-paginator
+       [length]="length"
+       [pageSize]="pageSize"
+       [pageSizeOptions]="pageSizeOptions"
+       (page)="pageEvent = getServerData($event)"></mat-paginator>
+</div>
